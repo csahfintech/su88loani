@@ -137,6 +137,21 @@ input::placeholder{font-size:13px}
   font-size:20px;
   font-weight:900;
 }
+  
+.service-hot{
+  background:linear-gradient(135deg,#00c853,#69f0ae) !important;
+  box-shadow:0 10px 25px rgba(0,200,83,.35) !important;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.08);}
+  100%{transform:scale(1);}
+}
+
+</style>
+  
 </style>
 </head>
 
@@ -237,25 +252,25 @@ input::placeholder{font-size:13px}
 
   <div class="member-grid">
 
-    <a href="https://lin.ee/uD9Tx9n" class="member-item">
-      <div class="member-icon">💬</div>
-      <span>真人客服</span>
-    </a>
+   <a href="#applyForm" onclick="showPage('homePage',0)" class="member-item">
+  <div class="member-icon">💸</div>
+  <span>我要借款</span>
+</a>
 
-    <a href="#applyForm" onclick="showPage('homePage',0)" class="member-item">
-      <div class="member-icon">📝</div>
-      <span>開始申辦</span>
-    </a>
+<a href="#applyForm" onclick="showPage('homePage',0)" class="member-item">
+  <div class="member-icon">📝</div>
+  <span>開始申辦</span>
+</a>
 
-    <a href="#applyForm" onclick="showPage('homePage',0)" class="member-item">
-      <div class="member-icon">📱</div>
-      <span>手機借款</span>
-    </a>
+<a href="#applyForm" onclick="showPage('homePage',0)" class="member-item">
+  <div class="member-icon">📱</div>
+  <span>手機借款</span>
+</a>
 
-    <a href="#applyForm" onclick="showPage('homePage',0)" class="member-item">
-      <div class="member-icon">💸</div>
-      <span>我要借款</span>
-    </a>
+<a href="https://lin.ee/uD9Tx9n" class="member-item">
+  <div class="member-icon service-hot">💬</div>
+  <span style="color:#18b8c8">聯絡客服</span>
+</a>
 
   </div>
 
