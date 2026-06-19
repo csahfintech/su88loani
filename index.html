@@ -46,14 +46,70 @@ input::placeholder{font-size:13px}
 .legal{font-size:12px;line-height:1.7;color:#81919b;margin:0 16px 18px}
 .line{color:#17b9c8;font-weight:900}
 
-.order-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 16px 80px}
-.order-pill{border:2px solid #b8c1c7;color:#8a9aa4;border-radius:999px;padding:10px;text-align:center;font-size:17px;font-weight:900}
-.order-pill.active{border-color:#17b9c8;color:#17b9c8}
-.empty-order{text-align:center;margin:120px 0;color:#8a9aa4;font-size:18px;font-weight:900}
-.empty-order .icon{font-size:68px;opacity:.2;margin-bottom:18px}
-.go-loan{color:#17b9c8;text-decoration:none;margin-left:10px}
-.contact-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:61px;width:100%;max-width:430px;display:grid;grid-template-columns:1fr 1fr;z-index:10}
-.contact-bar a{text-align:center;padding:14px 0;color:white;text-decoration:none;font-size:18px;font-weight:900}
+.order-page{
+  padding:22px 16px 90px;
+  min-height:calc(100vh - 84px);
+  background:linear-gradient(180deg,#f5fbfd,#ffffff);
+}
+
+.order-card{
+  background:white;
+  border:1px solid #e7eef2;
+  border-radius:22px;
+  padding:18px;
+  box-shadow:0 10px 24px rgba(23,185,200,.06);
+}
+
+.order-tabs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-bottom:70px;
+}
+
+.order-pill{
+  border:1.5px solid #d3e3e8;
+  color:#8a9aa4;
+  border-radius:999px;
+  padding:9px 4px;
+  text-align:center;
+  font-size:14px;
+  font-weight:900;
+  background:#fff;
+}
+
+.order-pill.active{
+  border-color:#17b9c8;
+  color:#17b9c8;
+  background:#f0fcfd;
+}
+
+.empty-order{
+  text-align:center;
+  padding:60px 0 80px;
+  color:#8a9aa4;
+  font-size:15px;
+  font-weight:800;
+}
+
+.empty-order .icon{
+  width:92px;
+  height:92px;
+  margin:0 auto 18px;
+  border-radius:28px;
+  background:linear-gradient(135deg,#e9fbfd,#ffffff);
+  display:grid;
+  place-items:center;
+  font-size:42px;
+  opacity:.85;
+}
+
+.go-loan{
+  color:#17b9c8;
+  text-decoration:none;
+  margin-left:8px;
+  font-weight:900;
+}
 .phone-btn{background:#e9a12c}
 .line-btn{background:#48b8c8}
 
@@ -137,24 +193,21 @@ input::placeholder{font-size:13px}
   </section>
 
   <p class="legal">提醒：本頁為申辦諮詢頁，實際額度、費用、租期、還款方式與是否核准，皆以客服說明及雙方確認文件為準。請審慎評估自身還款能力。</p>
-</section>
-
 <section id="orderPage" class="page">
-  <div class="order-tabs">
-    <div class="order-pill active">審核結果</div>
-    <div class="order-pill">待還款</div>
-    <div class="order-pill">已結清</div>
-  </div>
+  <div class="order-page">
+    <div class="order-card">
+      <div class="order-tabs">
+        <div class="order-pill active">審核結果</div>
+        <div class="order-pill">待還款</div>
+        <div class="order-pill">已結清</div>
+      </div>
 
-  <div class="empty-order">
-    <div class="icon">📄🔍</div>
-    無訂單記錄
-    <a href="#" class="go-loan" onclick="showPage('homePage',0)">去借款 ⟶</a>
-  </div>
-
-  <div class="contact-bar">
-    <a class="phone-btn" href="tel:0900000000">📞 聯絡電話</a>
-    <a class="line-btn" href="https://lin.ee/uD9Tx9n">💬 免費諮詢</a>
+      <div class="empty-order">
+        <div class="icon">🔎</div>
+        無訂單記錄
+        <a href="#" class="go-loan" onclick="showPage('homePage',0)">去申辦 →</a>
+      </div>
+    </div>
   </div>
 </section>
 
