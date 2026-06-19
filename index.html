@@ -150,6 +150,53 @@ input::placeholder{font-size:13px}
   100%{transform:scale(1);}
 }
 
+  .loan-banner{
+  margin-top:30px;
+  background:linear-gradient(135deg,#16c1cc,#5ce1e6);
+  border-radius:22px;
+  padding:22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:white;
+  overflow:hidden;
+  position:relative;
+}
+
+.loan-banner:after{
+  content:"$";
+  position:absolute;
+  right:-10px;
+  top:-20px;
+  font-size:120px;
+  font-weight:900;
+  opacity:.08;
+}
+
+.loan-banner-text h3{
+  margin:0;
+  font-size:28px;
+  font-weight:900;
+}
+
+.loan-banner-text p{
+  margin:10px 0;
+  font-size:18px;
+  font-weight:700;
+}
+
+.loan-banner-text span{
+  display:inline-block;
+  background:rgba(255,255,255,.2);
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.loan-banner-icon{
+  font-size:70px;
+}
 </style>
   
 </style>
@@ -232,6 +279,15 @@ input::placeholder{font-size:13px}
 <div class="icon">🔎</div>
 無訂單記錄
 <a href="#" class="go-loan" onclick="showPage('homePage',0)">去申辦 →</a>
+</div>
+  <div class="loan-banner">
+  <div class="loan-banner-text">
+    <h3>貸款免求人</h3>
+    <p>網路平台安全又迅速</p>
+    <span>額度 6,000 ~ 200,000</span>
+  </div>
+
+  <div class="loan-banner-icon">💸</div>
 </div>
 </div>
 </div>
