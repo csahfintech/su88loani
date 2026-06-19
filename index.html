@@ -72,6 +72,71 @@ input::placeholder{font-size:13px}
 .tab{text-align:center;color:#8a9aa4;font-size:12px;font-weight:800;text-decoration:none}
 .tab span{display:block;font-size:23px;margin-bottom:2px}
 .tab.active{color:#17b9c8}
+.member-page{
+  min-height:calc(100vh - 84px);
+  padding:22px 16px 100px;
+  background:#f5fbfd;
+}
+
+.member-banner{
+  background:linear-gradient(135deg,#16c1cc,#5ce1e6);
+  border-radius:20px;
+  padding:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:white;
+  margin-bottom:30px;
+}
+
+.member-banner h2{
+  margin:0;
+  font-size:34px;
+  font-weight:900;
+}
+
+.member-banner p{
+  margin-top:10px;
+  font-size:16px;
+  line-height:1.6;
+}
+
+.member-money{
+  font-size:70px;
+}
+
+.member-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+.member-item{
+  text-decoration:none;
+  color:#203444;
+  text-align:center;
+}
+
+.member-icon{
+  width:78px;
+  height:78px;
+  margin:auto;
+  border-radius:24px;
+  background:linear-gradient(135deg,#16c1cc,#5ce1e6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  color:white;
+  box-shadow:0 8px 20px rgba(23,185,200,.25);
+}
+
+.member-item span{
+  display:block;
+  margin-top:14px;
+  font-size:20px;
+  font-weight:900;
+}
 </style>
 </head>
 
@@ -158,21 +223,44 @@ input::placeholder{font-size:13px}
 </section>
 
 <section id="servicePage" class="page">
-<div class="customer-page">
-<div class="customer-hero">
-<div class="big24">24</div>
-<div class="customer-title">線上客服<br>為您服務</div>
+
+<div class="member-page">
+
+  <div class="member-banner">
+    <div class="member-text">
+      <h2>速88貸</h2>
+      <p>保持良好借還紀錄<br>享提高額度</p>
+    </div>
+
+    <div class="member-money">💰</div>
+  </div>
+
+  <div class="member-grid">
+
+    <a href="https://lin.ee/uD9Tx9n" class="member-item">
+      <div class="member-icon">💬</div>
+      <span>真人客服</span>
+    </a>
+
+    <a href="#applyForm" onclick="showPage('homePage',0)" class="member-item">
+      <div class="member-icon">📝</div>
+      <span>開始申辦</span>
+    </a>
+
+    <a href="#applyForm" onclick="showPage('homePage',0)" class="member-item">
+      <div class="member-icon">📱</div>
+      <span>手機借款</span>
+    </a>
+
+    <a href="#applyForm" onclick="showPage('homePage',0)" class="member-item">
+      <div class="member-icon">💸</div>
+      <span>我要借款</span>
+    </a>
+
+  </div>
+
 </div>
 
-<a class="customer-btn" href="https://lin.ee/uD9Tx9n">
-<div class="line-icon">LINE</div>
-<div class="service-text">
-<b>LINE 客服</b>
-<span>LINE CUSTOMER SERVICE</span>
-</div>
-<div class="join-btn">立即加入</div>
-</a>
-</div>
 </section>
 
 <nav class="bottom">
