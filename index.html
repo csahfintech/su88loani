@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>速88貸｜線上小額信貸｜小額借款｜線上平台</title>
+
 <style>
 html{scroll-behavior:smooth}
 *{box-sizing:border-box}
@@ -197,6 +198,35 @@ input::placeholder{font-size:13px}
 .loan-banner-icon{
   font-size:70px;
 }
+
+.line-flash{
+display:block;
+margin-top:12px;
+background:#06c755;
+color:white;
+padding:15px;
+border-radius:999px;
+text-decoration:none;
+font-size:22px;
+font-weight:900;
+text-align:center;
+animation:lineBlink 1s infinite;
+}
+
+@keyframes lineBlink{
+0%{
+transform:scale(1);
+box-shadow:0 0 0 rgba(6,199,85,0);
+}
+50%{
+transform:scale(1.08);
+box-shadow:0 0 25px rgba(6,199,85,.9);
+}
+100%{
+transform:scale(1);
+box-shadow:0 0 0 rgba(6,199,85,0);
+}
+}
 </style>
   
 </style>
@@ -305,13 +335,14 @@ font-size:18px;">
 <span style="color:#ff8da1;">（審核中）</span>
 </div>
 
-<div style="font-size:13px;color:#95a4ae;margin-top:4px;">
-申請時間：今日
+<div id="applyDate"
+style="font-size:13px;color:#95a4ae;margin-top:4px;">
+申請時間：
 </div>
 </div>
 
 <div style="font-size:22px;font-weight:900;">
-$6000
+$6,000
 </div>
 
 </div>
@@ -328,14 +359,7 @@ color:#17b9c8;">
 加入LINE完成對保撥款 ✅
 
 <a href="https://lin.ee/uD9Tx9n"
-style="
-display:block;
-margin-top:12px;
-background:#17b9c8;
-color:white;
-padding:12px;
-border-radius:999px;
-text-decoration:none;">
+class="line-flash">
 立即加入LINE
 </a>
 
@@ -415,6 +439,15 @@ window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function submitApply(){
+
+const today = new Date();
+
+const yyyy = today.getFullYear();
+const mm = String(today.getMonth()+1).padStart(2,'0');
+const dd = String(today.getDate()).padStart(2,'0');
+
+document.getElementById('applyDate').innerHTML =
+'申請時間：' + yyyy + '-' + mm + '-' + dd;
 
 document.getElementById('emptyOrder').style.display='none';
 
