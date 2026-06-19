@@ -227,8 +227,34 @@ transform:scale(1);
 box-shadow:0 0 0 rgba(6,199,85,0);
 }
 }
+.btn.disabled{
+  background:#b8cbd1;
+  box-shadow:none;
+  pointer-events:none;
+  opacity:.7;
+}
 </style>
-  
+<script>
+const inputs = ['nameInput','phoneInput','idInput','birthInput','iphoneInput'];
+
+inputs.forEach(id=>{
+  document.getElementById(id).addEventListener('input',checkForm);
+});
+
+function checkForm(){
+  const allFilled = inputs.every(id=>{
+    return document.getElementById(id).value.trim() !== '';
+  });
+
+  const btn = document.getElementById('submitBtn');
+
+  if(allFilled){
+    btn.classList.remove('disabled');
+  }else{
+    btn.classList.add('disabled');
+  }
+}
+</script>
 </style>
 </head>
 
@@ -273,16 +299,16 @@ box-shadow:0 0 0 rgba(6,199,85,0);
 <section class="card form">
 <div id="applyForm" class="section-title">開始申辦</div>
 <label class="field-title">姓名</label>
-<input placeholder="請輸入姓名">
+<input id="nameInput" placeholder="請輸入姓名">
 <label class="field-title">電話</label>
-<input type="tel" placeholder="請輸入電話">
+<input id="phoneInput" type="tel" placeholder="請輸入電話">
 <label class="field-title">身份證字號</label>
-<input placeholder="請輸入身份證字號">
+<input id="idInput" placeholder="請輸入身份證字號">
 <label class="field-title">出生年月日</label>
-<input placeholder="例如：1998/04/17">
+<input id="birthInput" placeholder="例如：1998/04/17">
 <label class="field-title">iPhone型號&容量</label>
-<input placeholder="例如：iPhone 14 Pro 256G">
-<a class="btn" href="#" onclick="submitApply()">送出</a>
+<input id="iphoneInput" placeholder="例如：iPhone 14 Pro 256G">
+<a id="submitBtn" class="btn disabled" href="#" onclick="submitApply()">送出</a>
 <div class="sub center">馬上過件，馬上撥款</div>
 </section>
 
