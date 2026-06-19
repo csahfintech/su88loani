@@ -252,7 +252,7 @@ input::placeholder{font-size:13px}
 <input placeholder="例如：1998/04/17">
 <label class="field-title">iPhone型號&容量</label>
 <input placeholder="例如：iPhone 14 Pro 256G">
-<a class="btn" href="https://lin.ee/uD9Tx9n">送出</a>
+<a class="btn" href="#" onclick="submitApply()">送出</a>
 <div class="sub center">馬上過件，馬上撥款</div>
 </section>
 
@@ -275,10 +275,72 @@ input::placeholder{font-size:13px}
 <div class="order-pill">已結清</div>
 </div>
 
-<div class="empty-order">
+<div id="emptyOrder" class="empty-order">
 <div class="icon">🔎</div>
 無訂單記錄
 <a href="#" class="go-loan" onclick="showPage('homePage',0)">去申辦 →</a>
+</div>
+
+<div id="orderResult" style="display:none;padding:20px 0;">
+
+<div style="display:flex;align-items:center;gap:12px;padding:10px 0;">
+
+<div style="
+width:50px;
+height:50px;
+border-radius:15px;
+background:linear-gradient(135deg,#16c1cc,#5ce1e6);
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-weight:900;
+font-size:18px;">
+88
+</div>
+
+<div style="flex:1;">
+<div style="font-size:18px;font-weight:900;">
+速88貸
+<span style="color:#ff8da1;">審核中</span>
+</div>
+
+<div style="font-size:13px;color:#95a4ae;margin-top:4px;">
+申請時間：今日
+</div>
+</div>
+
+<div style="font-size:22px;font-weight:900;">
+$6000
+</div>
+
+</div>
+
+<div style="
+margin-top:18px;
+background:#f0fcfd;
+border:1px solid #bdeef2;
+border-radius:16px;
+padding:16px;
+text-align:center;
+font-weight:900;
+color:#17b9c8;">
+加入LINE完成對保撥款 ✅
+
+<a href="https://lin.ee/uD9Tx9n"
+style="
+display:block;
+margin-top:12px;
+background:#17b9c8;
+color:white;
+padding:12px;
+border-radius:999px;
+text-decoration:none;">
+立即加入LINE
+</a>
+
+</div>
+
 </div>
   <div class="loan-banner">
   <div class="loan-banner-text">
@@ -343,6 +405,7 @@ input::placeholder{font-size:13px}
 </main>
 
 <script>
+
 function showPage(pageId,index){
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById(pageId).classList.add('active');
@@ -350,6 +413,17 @@ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
 document.querySelectorAll('.tab')[index].classList.add('active');
 window.scrollTo({top:0,behavior:'smooth'});
 }
+
+function submitApply(){
+
+document.getElementById('emptyOrder').style.display='none';
+
+document.getElementById('orderResult').style.display='block';
+
+showPage('orderPage',1);
+
+}
+
 </script>
 
 </body>
