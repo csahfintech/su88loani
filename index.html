@@ -234,18 +234,48 @@ box-shadow:0 0 0 rgba(6,199,85,0);
   opacity:.7;
 }
 </style>
+.error{
+color:#ff4d4f;
+font-size:13px;
+font-weight:700;
+margin-top:4px;
+margin-bottom:8px;
+padding-left:5px;
+}
 <script>
 const inputs = ['nameInput','phoneInput','idInput','birthInput','iphoneInput'];
 
 function checkForm(){
-  const allFilled = inputs.every(id=>{
-    const el = document.getElementById(id);
-    return el && el.value.trim() !== '';
-  });
+
+  const name = document.getElementById('nameInput').value.trim();
+  const phone = document.getElementById('phoneInput').value.trim();
+  const idno = document.getElementById('idInput').value.trim();
+  const birth = document.getElementById('birthInput').value.trim();
+  const iphone = document.getElementById('iphoneInput').value.trim();
+
+  const phoneRule = /^09\d{8}$/;
+  const idRule = /^[A-Z][0-9]{9}$/;
+
+  document.getElementById('phoneError').innerHTML =
+phone && !phoneRule.test(phone)
+? '手機號碼必須為09開頭，共10碼'
+: '';
+
+document.getElementById('idError').innerHTML =
+idno && !idRule.test(idno)
+? '身分證格式需為 A123456789'
+: '';
+
+  const valid =
+    name !== '' &&
+    birth !== '' &&
+    iphone !== '' &&
+    phoneRule.test(phone) &&
+    idRule.test(idno);
 
   const btn = document.getElementById('submitBtn');
 
-  if(allFilled){
+  if(valid){
     btn.classList.remove('disabled');
   }else{
     btn.classList.add('disabled');
@@ -339,9 +369,18 @@ function submitApply(){
 <label class="field-title">姓名</label>
 <input id="nameInput" placeholder="請輸入姓名">
 <label class="field-title">電話</label>
-<input id="phoneInput" type="tel" placeholder="請輸入電話">
+<input
+id="phoneInput"
+type="tel"
+placeholder="請輸入09開頭手機號碼">
+
+<div id="phoneError" class="error"></div>
 <label class="field-title">身份證字號</label>
-<input id="idInput" placeholder="請輸入身份證字號">
+<input
+id="idInput"
+placeholder="例如：A123456789">
+
+<div id="idError" class="error"></div>
 <label class="field-title">出生年月日</label>
 <input id="birthInput" placeholder="例如：1998/04/17">
 <label class="field-title">iPhone型號&容量</label>
