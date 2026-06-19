@@ -197,73 +197,6 @@ input::placeholder{font-size:13px}
 .loan-banner-icon{
   font-size:70px;
 }
-.order-result{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:18px 4px;
-  margin-top:20px;
-}
-
-.order-logo{
-  width:42px;
-  height:42px;
-  border-radius:12px;
-  background:linear-gradient(135deg,#16c1cc,#5ce1e6);
-  color:white;
-  display:grid;
-  place-items:center;
-  font-weight:900;
-}
-
-.order-info{
-  flex:1;
-}
-
-.order-info b{
-  font-size:16px;
-  color:#203444;
-}
-
-.order-info span{
-  color:#e28a9b;
-  font-weight:800;
-  margin-left:4px;
-}
-
-.order-info small{
-  display:block;
-  color:#b3bdc4;
-  margin-top:6px;
-}
-
-.order-money{
-  font-size:18px;
-  font-weight:900;
-  color:#203444;
-}
-
-.line-tip{
-  margin-top:18px;
-  background:#f0fcfd;
-  border:1px solid #bfeff3;
-  color:#147985;
-  border-radius:16px;
-  padding:14px;
-  font-weight:900;
-  text-align:center;
-}
-
-.line-tip a{
-  display:block;
-  margin-top:10px;
-  color:white;
-  background:#17b9c8;
-  border-radius:999px;
-  padding:10px;
-  text-decoration:none;
-}
-  
 </style>
   
 </style>
@@ -319,7 +252,7 @@ input::placeholder{font-size:13px}
 <input placeholder="例如：1998/04/17">
 <label class="field-title">iPhone型號&容量</label>
 <input placeholder="例如：iPhone 14 Pro 256G">
-<a class="btn" href="#" onclick="submitApply()">送出</a>
+<a class="btn" href="https://lin.ee/uD9Tx9n">送出</a>
 <div class="sub center">馬上過件，馬上撥款</div>
 </section>
 
@@ -336,33 +269,26 @@ input::placeholder{font-size:13px}
 <section id="orderPage" class="page">
 <div class="order-page">
 <div class="order-card">
-
 <div class="order-tabs">
 <div class="order-pill active">審核結果</div>
 <div class="order-pill">待還款</div>
 <div class="order-pill">已結清</div>
 </div>
 
-<div id="emptyOrder" class="empty-order">
+<div class="empty-order">
 <div class="icon">🔎</div>
 無訂單記錄
 <a href="#" class="go-loan" onclick="showPage('homePage',0)">去申辦 →</a>
 </div>
-
-<div id="orderResult" class="order-result" style="display:none;">
-  <div class="order-logo">88</div>
-  <div class="order-info">
-    <div><b>速88貸</b> <span>審核中</span></div>
-    <small>申請時間：今日</small>
+  <div class="loan-banner">
+  <div class="loan-banner-text">
+    <h3>貸款免求人</h3>
+    <p>網路平台安全又迅速</p>
+    <span>額度 6,000 ~ 200,000</span>
   </div>
-  <div class="order-money">$ 6000</div>
-</div>
 
-<div id="lineTip" class="line-tip" style="display:none;">
-  請先加入 LINE 對保撥款
-  <a href="https://lin.ee/uD9Tx9n">立即加入</a>
+  <div class="loan-banner-icon">💸</div>
 </div>
-
 </div>
 </div>
 </section>
@@ -423,12 +349,6 @@ document.getElementById(pageId).classList.add('active');
 document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
 document.querySelectorAll('.tab')[index].classList.add('active');
 window.scrollTo({top:0,behavior:'smooth'});
-function submitApply(){
-document.getElementById('emptyOrder').style.display='none';
-document.getElementById('orderResult').style.display='flex';
-document.getElementById('lineTip').style.display='block';
-showPage('orderPage',1);
-}
 }
 </script>
 
