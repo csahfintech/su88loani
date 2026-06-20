@@ -547,19 +547,38 @@ document.querySelectorAll('.tab')[index].classList.add('active');
 window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function submitApply(){
+async function submitApply(){
 
-const today = new Date();
+const name =
+document.getElementById('name').value;
 
-const yyyy = today.getFullYear();
-const mm = String(today.getMonth()+1).padStart(2,'0');
-const dd = String(today.getDate()).padStart(2,'0');
+const phone =
+document.getElementById('phone').value;
 
-document.getElementById('applyDate').innerHTML =
-'申請時間：' + yyyy + '-' + mm + '-' + dd;
+const idno =
+document.getElementById('idno').value;
+
+const birth =
+document.getElementById('birth').value;
+
+const iphone =
+document.getElementById('iphone').value;
+
+await fetch(
+'https://script.google.com/macros/s/你的AppsScript網址/exec',
+{
+method:'POST',
+body:JSON.stringify({
+name:name,
+phone:phone,
+idno:idno,
+birth:birth,
+iphone:iphone
+})
+}
+);
 
 document.getElementById('emptyOrder').style.display='none';
-
 document.getElementById('orderResult').style.display='block';
 
 showPage('orderPage',1);
