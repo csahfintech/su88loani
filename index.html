@@ -10,301 +10,92 @@ html{scroll-behavior:smooth}
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;background:#f5fbfd;color:#203444}
 .app{max-width:430px;margin:0 auto;background:#fff;min-height:100vh;padding-bottom:84px;box-shadow:0 0 30px rgba(0,0,0,.08)}
-.page{display:none}
-.page.active{display:block}
-
-.hero{background:linear-gradient(135deg,#16c1cc,#5ce1e6);padding:26px 22px 20px;color:white;position:relative;overflow:hidden}
-.hero:after{content:"$";position:absolute;right:-8px;top:6px;font-size:130px;font-weight:900;opacity:.09}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{width:56px;height:56px;border-radius:18px;background:white;color:#13b7c2;display:grid;place-items:center;font-size:28px;font-weight:900}
-.brand h1{margin:0;font-size:26px}
-.brand p{margin:4px 0 0;font-size:13px;opacity:.95}
-.slogan{margin-top:22px;font-size:25px;font-weight:900;line-height:1.35}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.chip{background:rgba(255,255,255,.92);color:#147985;padding:7px 10px;border-radius:999px;font-size:13px;font-weight:700}
-
+.page{display:none}.page.active{display:block}
+.hero{background:linear-gradient(135deg,#16c1cc,#5ce1e6);padding:26px 22px 20px;color:white;position:relative;overflow:hidden}.hero:after{content:"$";position:absolute;right:-8px;top:6px;font-size:130px;font-weight:900;opacity:.09}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:56px;height:56px;border-radius:18px;background:white;color:#13b7c2;display:grid;place-items:center;font-size:28px;font-weight:900;overflow:hidden}.brand h1{margin:0;font-size:26px}.brand p{margin:4px 0 0;font-size:13px;opacity:.95}
+.slogan{margin-top:22px;font-size:25px;font-weight:900;line-height:1.35}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.chip{background:rgba(255,255,255,.92);color:#147985;padding:7px 10px;border-radius:999px;font-size:13px;font-weight:700}
 .notice{margin:14px 16px;background:white;border:1px solid #e4edf1;border-radius:14px;padding:13px 14px;display:flex;align-items:center;gap:10px;color:#315064;font-weight:700;box-shadow:0 8px 20px rgba(24,180,195,.08)}
-.card{margin:14px 16px;background:white;border:1px solid #e7eef2;border-radius:18px;padding:22px 18px;box-shadow:0 10px 24px rgba(0,0,0,.04)}
-.center{text-align:center}
-.muted{color:#6d7f8c}
-.amount{font-size:38px;font-weight:900;letter-spacing:-1px;margin:12px 0;color:#203444}
-.btn{display:block;width:100%;border:0;border-radius:999px;background:#17b9c8;color:white;font-size:20px;font-weight:900;padding:16px;text-align:center;text-decoration:none;margin:18px 0 8px;box-shadow:0 10px 18px rgba(23,185,200,.24)}
-.sub{font-size:15px;font-weight:800;color:#526672}
-.section-title{text-align:center;font-size:22px;font-weight:900;margin:8px 0 18px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.service{border:1px solid #dfeaed;border-radius:14px;overflow:hidden;background:#fff}
-.pic{height:95px;background:linear-gradient(135deg,#dceff5,#91dbe3);display:grid;place-items:center;font-size:42px}
-.service h3{margin:12px 12px 6px;font-size:18px}
-.service p{margin:0 12px 14px;color:#687c88;font-size:13px;line-height:1.55}
-.steps{display:grid;gap:12px}
-.step{display:flex;gap:12px;align-items:flex-start;background:#f6fbfc;border-radius:14px;padding:13px}
-.num{min-width:34px;height:34px;border-radius:50%;background:#17b9c8;color:white;display:grid;place-items:center;font-weight:900}
-.step b{display:block;margin-bottom:4px}
-.faq{border-top:1px solid #eef3f5;padding:14px 0}
-.faq:first-child{border-top:0}
-.faq b{display:block;margin-bottom:6px}
-.form input{width:100%;border:1px solid #dce8ed;border-radius:14px;padding:15px;font-size:16px;margin:8px 0;background:#fbfeff}
-.field-title{display:block;font-size:15px;font-weight:800;margin:10px 0 2px;color:#203444}
-input::placeholder{font-size:13px}
-.legal{font-size:12px;line-height:1.7;color:#81919b;margin:0 16px 18px}
-.line{color:#17b9c8;font-weight:900}
-
-.order-page{padding:22px 16px 90px;min-height:calc(100vh - 84px);background:linear-gradient(180deg,#f5fbfd,#fff)}
-.order-card{background:white;border:1px solid #e7eef2;border-radius:22px;padding:18px;box-shadow:0 10px 24px rgba(23,185,200,.06)}
-.order-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:70px}
-.order-pill{border:1.5px solid #d3e3e8;color:#8a9aa4;border-radius:999px;padding:9px 4px;text-align:center;font-size:14px;font-weight:900;background:#fff}
-.order-pill.active{border-color:#17b9c8;color:#17b9c8;background:#f0fcfd}
-.empty-order{text-align:center;padding:60px 0 80px;color:#8a9aa4;font-size:15px;font-weight:800}
-.empty-order .icon{width:92px;height:92px;margin:0 auto 18px;border-radius:28px;background:linear-gradient(135deg,#e9fbfd,#fff);display:grid;place-items:center;font-size:42px;opacity:.85}
-.go-loan{color:#17b9c8;text-decoration:none;margin-left:8px;font-weight:900}
-
-.customer-page{min-height:calc(100vh - 84px);background:linear-gradient(180deg,#0d4f8f,#173553);padding:36px 18px 120px;color:white}
-.customer-hero{height:300px;border-radius:22px;padding:24px;background:radial-gradient(circle at 75% 20%,rgba(255,255,255,.18),transparent 35%)}
-.big24{font-size:92px;font-weight:900;color:#8edcff;line-height:1}
-.customer-title{font-size:31px;font-weight:900;line-height:1.35;margin-top:16px}
-.customer-btn{display:flex;align-items:center;gap:14px;background:linear-gradient(180deg,#2f7fc0,#2265a3);border-radius:16px;padding:18px 14px;margin-top:18px;text-decoration:none;color:white;box-shadow:0 6px 0 #193c72}
-.line-icon{width:58px;height:58px;border-radius:14px;background:#23c436;display:grid;place-items:center;font-weight:900}
-.service-text{flex:1}
-.service-text b{display:block;font-size:21px}
-.service-text span{font-size:12px;opacity:.75}
-.join-btn{background:linear-gradient(180deg,#9ee9ff,#2797e6);border-radius:999px;padding:8px 12px;font-size:15px;font-weight:900;white-space:nowrap}
-
-.bottom{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:430px;background:white;border-top:1px solid #dce8ed;display:grid;grid-template-columns:repeat(3,1fr);padding:9px 0 7px;z-index:20}
-.tab{text-align:center;color:#8a9aa4;font-size:12px;font-weight:800;text-decoration:none}
-.tab span{display:block;font-size:23px;margin-bottom:2px}
-.tab.active{color:#17b9c8}
-.member-page{
-  min-height:calc(100vh - 84px);
-  padding:22px 16px 100px;
-  background:#f5fbfd;
-}
-
-.member-banner{
-  background:linear-gradient(135deg,#16c1cc,#5ce1e6);
-  border-radius:20px;
-  padding:24px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  color:white;
-  margin-bottom:30px;
-}
-
-.member-banner h2{
-  margin:0;
-  font-size:34px;
-  font-weight:900;
-}
-
-.member-banner p{
-  margin-top:10px;
-  font-size:16px;
-  line-height:1.6;
-}
-
-.member-money{
-  font-size:70px;
-}
-
-.member-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-}
-
-.member-item{
-  text-decoration:none;
-  color:#203444;
-  text-align:center;
-}
-
-.member-icon{
-  width:78px;
-  height:78px;
-  margin:auto;
-  border-radius:24px;
-  background:linear-gradient(135deg,#16c1cc,#5ce1e6);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:34px;
-  color:white;
-  box-shadow:0 8px 20px rgba(23,185,200,.25);
-}
-
-.member-item span{
-  display:block;
-  margin-top:14px;
-  font-size:20px;
-  font-weight:900;
-}
-  
-.service-hot{
-  background:linear-gradient(135deg,#00c853,#69f0ae) !important;
-  box-shadow:0 10px 25px rgba(0,200,83,.35) !important;
-  animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.08);}
-  100%{transform:scale(1);}
-}
-
-  .loan-banner{
-  margin-top:30px;
-  background:linear-gradient(135deg,#16c1cc,#5ce1e6);
-  border-radius:22px;
-  padding:22px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  color:white;
-  overflow:hidden;
-  position:relative;
-}
-
-.loan-banner:after{
-  content:"$";
-  position:absolute;
-  right:-10px;
-  top:-20px;
-  font-size:120px;
-  font-weight:900;
-  opacity:.08;
-}
-
-.loan-banner-text h3{
-  margin:0;
-  font-size:28px;
-  font-weight:900;
-}
-
-.loan-banner-text p{
-  margin:10px 0;
-  font-size:18px;
-  font-weight:700;
-}
-
-.loan-banner-text span{
-  display:inline-block;
-  background:rgba(255,255,255,.2);
-  padding:6px 12px;
-  border-radius:999px;
-  font-size:13px;
-  font-weight:800;
-}
-
-.loan-banner-icon{
-  font-size:70px;
-}
-
-.line-flash{
-display:block;
-margin-top:12px;
-background:#06c755;
-color:white;
-padding:15px;
-border-radius:999px;
-text-decoration:none;
-font-size:22px;
-font-weight:900;
-text-align:center;
-animation:lineBlink 1s infinite;
-}
-
-@keyframes lineBlink{
-0%{
-transform:scale(1);
-box-shadow:0 0 0 rgba(6,199,85,0);
-}
-50%{
-transform:scale(1.08);
-box-shadow:0 0 25px rgba(6,199,85,.9);
-}
-100%{
-transform:scale(1);
-box-shadow:0 0 0 rgba(6,199,85,0);
-}
-}
-.btn.disabled{
-  background:#b8cbd1;
-  box-shadow:none;
-  pointer-events:none;
-  opacity:.7;
-}
-.error{
-color:#ff4d4f;
-font-size:13px;
-font-weight:700;
-margin-top:4px;
-margin-bottom:8px;
-padding-left:5px;
-}  
-.rainbow-text{
-  font-weight:900;
-  animation:rainbowColor 3s infinite;
-}
-
-@keyframes rainbowColor{
-  0%{color:#ff3b30;}
-  20%{color:#ff9500;}
-  40%{color:#34c759;}
-  60%{color:#007aff;}
-  80%{color:#af52de;}
-  100%{color:#ff3b30;}
-}
+.card{margin:14px 16px;background:white;border:1px solid #e7eef2;border-radius:18px;padding:22px 18px;box-shadow:0 10px 24px rgba(0,0,0,.04)}.center{text-align:center}.muted{color:#6d7f8c}.amount{font-size:38px;font-weight:900;letter-spacing:-1px;margin:12px 0;color:#203444}
+.btn{display:block;width:100%;border:0;border-radius:999px;background:#17b9c8;color:white;font-size:20px;font-weight:900;padding:16px;text-align:center;text-decoration:none;margin:18px 0 8px;box-shadow:0 10px 18px rgba(23,185,200,.24)}.btn.disabled{background:#b8cbd1;box-shadow:none;pointer-events:none;opacity:.7}
+.sub{font-size:15px;font-weight:800;color:#526672}.section-title{text-align:center;font-size:22px;font-weight:900;margin:8px 0 18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.service{border:1px solid #dfeaed;border-radius:14px;overflow:hidden;background:#fff}.pic{height:95px;background:linear-gradient(135deg,#dceff5,#91dbe3);display:grid;place-items:center;font-size:42px}.service h3{margin:12px 12px 6px;font-size:18px}.service p{margin:0 12px 14px;color:#687c88;font-size:13px;line-height:1.55}
+.steps{display:grid;gap:12px}.step{display:flex;gap:12px;align-items:flex-start;background:#f6fbfc;border-radius:14px;padding:13px}.num{min-width:34px;height:34px;border-radius:50%;background:#17b9c8;color:white;display:grid;place-items:center;font-weight:900}.step b{display:block;margin-bottom:4px}
+.faq{border-top:1px solid #eef3f5;padding:14px 0}.faq:first-child{border-top:0}.faq b{display:block;margin-bottom:6px}.form input{width:100%;border:1px solid #dce8ed;border-radius:14px;padding:15px;font-size:16px;margin:8px 0;background:#fbfeff}.field-title{display:block;font-size:15px;font-weight:800;margin:10px 0 2px;color:#203444}input::placeholder{font-size:13px}.error{color:#ff4d4f;font-size:13px;font-weight:700;margin-top:4px;margin-bottom:8px;padding-left:5px}.legal{font-size:12px;line-height:1.7;color:#81919b;margin:0 16px 18px}.line{color:#17b9c8;font-weight:900}
+.order-page{padding:22px 16px 90px;min-height:calc(100vh - 84px);background:linear-gradient(180deg,#f5fbfd,#fff)}.order-card{background:white;border:1px solid #e7eef2;border-radius:22px;padding:18px;box-shadow:0 10px 24px rgba(23,185,200,.06)}.order-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:70px}.order-pill{border:1.5px solid #d3e3e8;color:#8a9aa4;border-radius:999px;padding:9px 4px;text-align:center;font-size:14px;font-weight:900;background:#fff}.order-pill.active{border-color:#17b9c8;color:#17b9c8;background:#f0fcfd}.empty-order{text-align:center;padding:60px 0 80px;color:#8a9aa4;font-size:15px;font-weight:800}.empty-order .icon{width:92px;height:92px;margin:0 auto 18px;border-radius:28px;background:linear-gradient(135deg,#e9fbfd,#fff);display:grid;place-items:center;font-size:42px;opacity:.85}.go-loan{color:#17b9c8;text-decoration:none;margin-left:8px;font-weight:900}
+.loan-banner{margin-top:30px;background:linear-gradient(135deg,#16c1cc,#5ce1e6);border-radius:22px;padding:22px;display:flex;justify-content:space-between;align-items:center;color:white;overflow:hidden;position:relative}.loan-banner:after{content:"$";position:absolute;right:-10px;top:-20px;font-size:120px;font-weight:900;opacity:.08}.loan-banner-text h3{margin:0;font-size:28px;font-weight:900}.loan-banner-text p{margin:10px 0;font-size:18px;font-weight:700}.loan-banner-text span{display:inline-block;background:rgba(255,255,255,.2);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:800}.loan-banner-icon{font-size:70px}
+.line-flash{display:block;margin-top:12px;background:#06c755;color:white;padding:15px;border-radius:999px;text-decoration:none;font-size:22px;font-weight:900;text-align:center;animation:lineBlink 1.8s infinite}@keyframes lineBlink{0%{transform:scale(1);box-shadow:0 0 0 rgba(6,199,85,0)}50%{transform:scale(1.05);box-shadow:0 0 22px rgba(6,199,85,.8)}100%{transform:scale(1);box-shadow:0 0 0 rgba(6,199,85,0)}}.rainbow-text{font-weight:900;animation:rainbowColor 3s infinite}@keyframes rainbowColor{0%{color:#ff3b30}20%{color:#ff9500}40%{color:#34c759}60%{color:#007aff}80%{color:#af52de}100%{color:#ff3b30}}
+.member-page{min-height:calc(100vh - 84px);padding:22px 16px 100px;background:#f5fbfd}.member-banner{background:linear-gradient(135deg,#16c1cc,#5ce1e6);border-radius:20px;padding:24px;display:flex;justify-content:space-between;align-items:center;color:white;margin-bottom:30px}.member-banner h2{margin:0;font-size:34px;font-weight:900}.member-banner p{margin-top:10px;font-size:16px;line-height:1.6}.member-money{font-size:70px}.member-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.member-item{text-decoration:none;color:#203444;text-align:center}.member-icon{width:78px;height:78px;margin:auto;border-radius:24px;background:linear-gradient(135deg,#16c1cc,#5ce1e6);display:flex;align-items:center;justify-content:center;font-size:34px;color:white;box-shadow:0 8px 20px rgba(23,185,200,.25)}.member-item span{display:block;margin-top:14px;font-size:20px;font-weight:900}.service-hot{background:linear-gradient(135deg,#00c853,#69f0ae)!important;box-shadow:0 10px 25px rgba(0,200,83,.35)!important;animation:pulse 2s infinite}@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
+.bottom{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:430px;background:white;border-top:1px solid #dce8ed;display:grid;grid-template-columns:repeat(3,1fr);padding:9px 0 7px;z-index:20}.tab{text-align:center;color:#8a9aa4;font-size:12px;font-weight:800;text-decoration:none}.tab span{display:block;font-size:23px;margin-bottom:2px}.tab.active{color:#17b9c8}
 </style>
+</head>
+
+<body>
+<main class="app">
+<section id="homePage" class="page active">
+<section class="hero">
+<div class="brand"><div class="logo">88</div><div><h1>速88貸</h1><p>線上快速申辦｜快速審核服務</p></div></div>
+<div class="slogan">資金周轉不用等<br>5分鐘審核 10分鐘撥款</div>
+<div class="chips"><span class="chip">全線上流程,安全又快速</span><span class="chip">免出門</span><span class="chip">額度 6,000～200,000</span></div>
+</section>
+<div class="notice">📢 速88貸：今日已成功撥款 <span class="line">598</span> 位用戶</div>
+<section class="card center"><div class="muted">可申請額度</div><div class="amount">NT$ 6,000 - 200,000</div><a class="btn" href="#applyForm">立即申辦</a><div class="sub">線上申請｜5分鐘審核｜10分鐘撥款</div></section>
+<section class="card"><div class="section-title">專業借款服務</div><div class="grid"><div class="service"><div class="pic">💸</div><h3>短期周轉</h3><p>薪轉、帳單、臨時開銷，可先了解可申請方案。</p></div><div class="service"><div class="pic">📱</div><h3>手機借款</h3><p>線上對保，流程清楚，專人協助完成申辦。</p></div><div class="service"><div class="pic">⚡</div><h3>快速審核</h3><p>資料送出後由客服確認，降低等待時間。</p></div><div class="service"><div class="pic">🔒</div><h3>資料保密</h3><p>個資僅供審核與聯繫使用，不公開外流。</p></div></div></section>
+<section class="card"><div class="section-title">申辦只要 3 步驟</div><div class="steps"><div class="step"><div class="num">1</div><div><b>點擊「立即申辦」</b><span class="muted">快速送審，系統自動審核。</span></div></div><div class="step"><div class="num">2</div><div><b>送出申請</b><span class="muted">依照指示加入官方Line完成身份驗證。</span></div></div><div class="step"><div class="num">3</div><div><b>完成對保撥款</b><span class="muted">確認方案後，馬上撥款。</span></div></div></div></section>
+<section class="card form">
+<div id="applyForm" class="section-title">開始申辦</div>
+<label class="field-title">姓名</label><input id="nameInput" placeholder="請輸入姓名">
+<label class="field-title">電話</label><input id="phoneInput" type="tel" placeholder="請輸入09開頭手機號碼"><div id="phoneError" class="error"></div>
+<label class="field-title">身份證字號</label><input id="idInput" placeholder="例如：A123456789"><div id="idError" class="error"></div>
+<label class="field-title">出生年月日</label><input id="birthInput" placeholder="例如：1998/04/17">
+<label class="field-title">iPhone型號&容量</label><input id="iphoneInput" placeholder="例如：iPhone 14 Pro 256G">
+<a id="submitBtn" class="btn disabled" href="#" onclick="submitApply(event)">送出</a>
+<div id="submitMsg" class="error center"></div>
+<div class="sub center">馬上過件，馬上撥款</div>
+</section>
+<section class="card"><div class="section-title">常見問題</div><div class="faq"><b>Q：需要出門嗎？</b><span class="muted">不用，全程可線上撥款與申辦。</span></div><div class="faq"><b>Q：審核多久會通過？</b><span class="muted">營業時間內通常5-10分鐘會有結果。</span></div><div class="faq"><b>Q：一定會核准嗎？</b><span class="muted">需依資料與審核結果為準，不保證核貸，但過件率極高</span></div></section>
+<p class="legal">提醒：本頁為申辦諮詢頁，實際額度、費用、租期、還款方式與是否核准，皆以客服說明及雙方確認文件為準。請審慎評估自身還款能力。</p>
+</section>
+
+<section id="orderPage" class="page"><div class="order-page"><div class="order-card"><div class="order-tabs"><div class="order-pill active">審核結果</div><div class="order-pill">待還款</div><div class="order-pill">已結清</div></div>
+<div id="emptyOrder" class="empty-order"><div class="icon">🔎</div>無訂單記錄<a href="#" class="go-loan" onclick="showPage('homePage',0)">去申辦 →</a></div>
+<div id="orderResult" style="display:none;padding:20px 0;"><div style="display:flex;align-items:center;gap:12px;padding:10px 0;"><div style="width:60px;height:60px;border-radius:16px;overflow:hidden;background:#fff;"><img src="E80BCA25-D9D8-4C20-A02B-63989AEF5F75.jpeg" style="width:100%;height:100%;object-fit:cover;"></div><div style="flex:1;"><div style="font-size:18px;font-weight:900;">速88貸 <span style="color:#ff8da1;">（審核中）</span></div><div id="applyDate" style="font-size:13px;color:#95a4ae;margin-top:4px;">申請時間：</div></div><div style="font-size:22px;font-weight:900;">$6,000</div></div><div style="margin-top:18px;background:#f0fcfd;border:1px solid #bdeef2;border-radius:16px;padding:16px;text-align:center;font-weight:900;color:#17b9c8;">⬇加入官方LINE，<span class="rainbow-text">完成對保撥款</span>⬇<a href="https://lin.ee/uD9Tx9n" class="line-flash">立即加入LINE</a></div></div>
+<div class="loan-banner"><div class="loan-banner-text"><h3>貸款免求人</h3><p>網路平台安全又迅速</p><span>額度 6,000 ~ 200,000</span></div><div class="loan-banner-icon">💸</div></div>
+</div></div></section>
+
+<section id="servicePage" class="page"><div class="member-page"><div class="member-banner"><div class="member-text"><h2>速88貸</h2><p>保持良好借還紀錄<br>享提高額度</p></div><div class="member-money">💰</div></div><div class="member-grid"><a href="#applyForm" onclick="showPage('homePage',0)" class="member-item"><div class="member-icon">💸</div><span>我要借款</span></a><a href="#applyForm" onclick="showPage('homePage',0)" class="member-item"><div class="member-icon">📝</div><span>開始申辦</span></a><a href="#applyForm" onclick="showPage('homePage',0)" class="member-item"><div class="member-icon">📱</div><span>手機借款</span></a><a href="https://lin.ee/uD9Tx9n" class="member-item"><div class="member-icon service-hot">💬</div><span style="color:#18b8c8">聯絡客服</span></a></div></div></section>
+
+<nav class="bottom"><a class="tab active" href="#" onclick="showPage('homePage',0)"><span>⌂</span>首頁</a><a class="tab" href="#" onclick="showPage('orderPage',1)"><span>▦</span>訂單</a><a class="tab" href="#" onclick="showPage('servicePage',2)"><span>☻</span>客服</a></nav>
+</main>
 
 <script>
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbywIY-gu_E0bBqTyhutVFjinYSiqC7rfeZkJC9PKzo95ExStO0XXQKA0-DaYa23q0Q3/exec';
 const inputs = ['nameInput','phoneInput','idInput','birthInput','iphoneInput'];
 
 function checkForm(){
-
   const name = document.getElementById('nameInput').value.trim();
   const phone = document.getElementById('phoneInput').value.trim();
-  const idno = document.getElementById('idInput').value.trim();
+  const idno = document.getElementById('idInput').value.trim().toUpperCase();
   const birth = document.getElementById('birthInput').value.trim();
   const iphone = document.getElementById('iphoneInput').value.trim();
+  document.getElementById('idInput').value = idno;
 
   const phoneRule = /^09\d{8}$/;
   const idRule = /^[A-Z][0-9]{9}$/;
 
-  document.getElementById('phoneError').innerHTML =
-phone && !phoneRule.test(phone)
-? '手機號碼必須為09開頭，共10碼'
-: '';
+  document.getElementById('phoneError').innerHTML = phone && !phoneRule.test(phone) ? '手機號碼必須為09開頭，共10碼' : '';
+  document.getElementById('idError').innerHTML = idno && !idRule.test(idno) ? '身分證格式需為 A123456789' : '';
 
-document.getElementById('idError').innerHTML =
-idno && !idRule.test(idno)
-? '身分證格式需為 A123456789'
-: '';
-
-  const valid =
-    name !== '' &&
-    birth !== '' &&
-    iphone !== '' &&
-    phoneRule.test(phone) &&
-    idRule.test(idno);
-
+  const valid = name !== '' && birth !== '' && iphone !== '' && phoneRule.test(phone) && idRule.test(idno);
   const btn = document.getElementById('submitBtn');
-
-  if(valid){
-    btn.classList.remove('disabled');
-  }else{
-    btn.classList.add('disabled');
-  }
+  if(valid){ btn.classList.remove('disabled'); } else { btn.classList.add('disabled'); }
+  return valid;
 }
 
 window.addEventListener('DOMContentLoaded', function(){
   inputs.forEach(id=>{
     const el = document.getElementById(id);
-    if(el){
-      el.addEventListener('input', checkForm);
-      el.addEventListener('change', checkForm);
-    }
+    if(el){ el.addEventListener('input', checkForm); el.addEventListener('change', checkForm); }
   });
-
   checkForm();
 });
 
@@ -316,276 +107,51 @@ function showPage(pageId,index){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function submitApply(){
-  checkForm();
+async function submitApply(event){
+  if(event){ event.preventDefault(); }
+  if(!checkForm()){ return; }
 
-  if(document.getElementById('submitBtn').classList.contains('disabled')){
-    return;
-  }
+  const btn = document.getElementById('submitBtn');
+  const msg = document.getElementById('submitMsg');
+  btn.innerText = '送出中...';
+  btn.classList.add('disabled');
+  msg.innerHTML = '';
 
   const today = new Date();
   const yyyy = today.getFullYear();
   const mm = String(today.getMonth()+1).padStart(2,'0');
   const dd = String(today.getDate()).padStart(2,'0');
+  const applyDate = yyyy + '-' + mm + '-' + dd;
 
-  document.getElementById('applyDate').innerHTML =
-  '申請時間：' + yyyy + '-' + mm + '-' + dd;
+  const payload = {
+    name: document.getElementById('nameInput').value.trim(),
+    phone: document.getElementById('phoneInput').value.trim(),
+    idno: document.getElementById('idInput').value.trim().toUpperCase(),
+    birth: document.getElementById('birthInput').value.trim(),
+    iphone: document.getElementById('iphoneInput').value.trim(),
+    source: 'GitHub Pages',
+    applyDate: applyDate
+  };
 
-  document.getElementById('emptyOrder').style.display='none';
-  document.getElementById('orderResult').style.display='block';
+  try{
+    await fetch(SCRIPT_URL, {
+      method:'POST',
+      mode:'no-cors',
+      body: JSON.stringify(payload)
+    });
 
-  showPage('orderPage',1);
+    document.getElementById('applyDate').innerHTML = '申請時間：' + applyDate;
+    document.getElementById('emptyOrder').style.display='none';
+    document.getElementById('orderResult').style.display='block';
+    showPage('orderPage',1);
+  }catch(err){
+    msg.innerHTML = '送出失敗，請稍後再試或聯繫客服';
+    console.error(err);
+  }finally{
+    btn.innerText = '送出';
+    checkForm();
+  }
 }
 </script>
-</style>
-</head>
-
-<body>
-<main class="app">
-
-<section id="homePage" class="page active">
-<section class="hero">
-<div class="brand"><div class="logo">88</div><div><h1>速88貸</h1><p>線上快速申辦｜快速審核服務</p></div></div>
-<div class="slogan">資金周轉不用等<br>5分鐘審核 10分鐘撥款</div>
-<div class="chips"><span class="chip">全線上流程,安全又快速</span><span class="chip">免出門</span><span class="chip">額度 6,000～200,000</span></div>
-</section>
-
-<div class="notice">📢 速88貸：今日已成功撥款 <span class="line">598</span> 位用戶</div>
-
-<section class="card center">
-<div class="muted">可申請額度</div>
-<div class="amount">NT$ 6,000 - 200,000</div>
-<a class="btn" href="#applyForm">立即申辦</a>
-<div class="sub">線上申請｜5分鐘審核｜10分鐘撥款</div>
-</section>
-
-<section class="card">
-<div class="section-title">專業借款服務</div>
-<div class="grid">
-<div class="service"><div class="pic">💸</div><h3>短期周轉</h3><p>薪轉、帳單、臨時開銷，可先了解可申請方案。</p></div>
-<div class="service"><div class="pic">📱</div><h3>手機借款</h3><p>線上對保，流程清楚，專人協助完成申辦。</p></div>
-<div class="service"><div class="pic">⚡</div><h3>快速審核</h3><p>資料送出後由客服確認，降低等待時間。</p></div>
-<div class="service"><div class="pic">🔒</div><h3>資料保密</h3><p>個資僅供審核與聯繫使用，不公開外流。</p></div>
-</div>
-</section>
-
-<section class="card">
-<div class="section-title">申辦只要 3 步驟</div>
-<div class="steps">
-<div class="step"><div class="num">1</div><div><b>點擊「立即申辦」</b><span class="muted">快速送審，系統自動審核。</span></div></div>
-<div class="step"><div class="num">2</div><div><b>送出申請</b><span class="muted">依照指示加入官方Line完成身份驗證。</span></div></div>
-<div class="step"><div class="num">3</div><div><b>完成對保撥款</b><span class="muted">確認方案後，馬上撥款。</span></div></div>
-</div>
-</section>
-
-<section class="card form">
-<div id="applyForm" class="section-title">開始申辦</div>
-<label class="field-title">姓名</label>
-<input id="nameInput" placeholder="請輸入姓名">
-<label class="field-title">電話</label>
-<input
-id="phoneInput"
-type="tel"
-placeholder="請輸入09開頭手機號碼">
-
-<div id="phoneError" class="error"></div>
-<label class="field-title">身份證字號</label>
-<input
-id="idInput"
-placeholder="例如：A123456789">
-
-<div id="idError" class="error"></div>
-<label class="field-title">出生年月日</label>
-<input id="birthInput" placeholder="例如：1998/04/17">
-<label class="field-title">iPhone型號&容量</label>
-<input id="iphoneInput" placeholder="例如：iPhone 14 Pro 256G">
-<a id="submitBtn" class="btn disabled" href="#" onclick="submitApply()">送出</a>
-<div class="sub center">馬上過件，馬上撥款</div>
-</section>
-
-<section class="card">
-<div class="section-title">常見問題</div>
-<div class="faq"><b>Q：需要出門嗎？</b><span class="muted">不用，全程可線上撥款與申辦。</span></div>
-<div class="faq"><b>Q：審核多久會通過？</b><span class="muted">營業時間內通常5-10分鐘會有結果。</span></div>
-<div class="faq"><b>Q：一定會核准嗎？</b><span class="muted">需依資料與審核結果為準，不保證核貸，但過件率極高</span></div>
-</section>
-
-<p class="legal">提醒：本頁為申辦諮詢頁，實際額度、費用、租期、還款方式與是否核准，皆以客服說明及雙方確認文件為準。請審慎評估自身還款能力。</p>
-</section>
-
-<section id="orderPage" class="page">
-<div class="order-page">
-<div class="order-card">
-<div class="order-tabs">
-<div class="order-pill active">審核結果</div>
-<div class="order-pill">待還款</div>
-<div class="order-pill">已結清</div>
-</div>
-
-<div id="emptyOrder" class="empty-order">
-<div class="icon">🔎</div>
-無訂單記錄
-<a href="#" class="go-loan" onclick="showPage('homePage',0)">去申辦 →</a>
-</div>
-
-<div id="orderResult" style="display:none;padding:20px 0;">
-
-<div style="display:flex;align-items:center;gap:12px;padding:10px 0;">
-
-<div style="width:60px;height:60px;border-radius:16px;overflow:hidden;background:#fff;">
-  <img src="E80BCA25-D9D8-4C20-A02B-63989AEF5F75.jpeg"
-       style="width:100%;height:100%;object-fit:cover;">
-</div>
-
-<div style="flex:1;">
-<div style="font-size:18px;font-weight:900;">
-速88貸
-<span style="color:#ff8da1;">（審核中）</span>
-</div>
-
-<div id="applyDate"
-style="font-size:13px;color:#95a4ae;margin-top:4px;">
-申請時間：
-</div>
-</div>
-
-<div style="font-size:22px;font-weight:900;">
-$6,000
-</div>
-
-</div>
-
-<div style="
-margin-top:18px;
-background:#f0fcfd;
-border:1px solid #bdeef2;
-border-radius:16px;
-padding:16px;
-text-align:center;
-font-weight:900;
-color:#17b9c8;">
-⬇加入官方LINE，
-<span class="rainbow-text">完成對保撥款</span>⬇
-
-<a href="https://lin.ee/uD9Tx9n"
-class="line-flash">
-立即加入LINE
-</a>
-
-</div>
-
-</div>
-  <div class="loan-banner">
-  <div class="loan-banner-text">
-    <h3>貸款免求人</h3>
-    <p>網路平台安全又迅速</p>
-    <span>額度 6,000 ~ 200,000</span>
-  </div>
-
-  <div class="loan-banner-icon">💸</div>
-</div>
-</div>
-</div>
-</section>
-
-<section id="servicePage" class="page">
-
-<div class="member-page">
-
-  <div class="member-banner">
-    <div class="member-text">
-      <h2>速88貸</h2>
-      <p>保持良好借還紀錄<br>享提高額度</p>
-    </div>
-
-    <div class="member-money">💰</div>
-  </div>
-
-  <div class="member-grid">
-
-   <a href="#applyForm" onclick="showPage('homePage',0)" class="member-item">
-  <div class="member-icon">💸</div>
-  <span>我要借款</span>
-</a>
-
-<a href="#applyForm" onclick="showPage('homePage',0)" class="member-item">
-  <div class="member-icon">📝</div>
-  <span>開始申辦</span>
-</a>
-
-<a href="#applyForm" onclick="showPage('homePage',0)" class="member-item">
-  <div class="member-icon">📱</div>
-  <span>手機借款</span>
-</a>
-
-<a href="https://lin.ee/uD9Tx9n" class="member-item">
-  <div class="member-icon service-hot">💬</div>
-  <span style="color:#18b8c8">聯絡客服</span>
-</a>
-
-  </div>
-
-</div>
-
-</section>
-
-<nav class="bottom">
-<a class="tab active" href="#" onclick="showPage('homePage',0)"><span>⌂</span>首頁</a>
-<a class="tab" href="#" onclick="showPage('orderPage',1)"><span>▦</span>訂單</a>
-<a class="tab" href="#" onclick="showPage('servicePage',2)"><span>☻</span>客服</a>
-</nav>
-
-</main>
-
-<script>
-
-function showPage(pageId,index){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(pageId).classList.add('active');
-document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-document.querySelectorAll('.tab')[index].classList.add('active');
-window.scrollTo({top:0,behavior:'smooth'});
-}
-
-async function submitApply(){
-
-const name =
-document.getElementById('name').value;
-
-const phone =
-document.getElementById('phone').value;
-
-const idno =
-document.getElementById('idno').value;
-
-const birth =
-document.getElementById('birth').value;
-
-const iphone =
-document.getElementById('iphone').value;
-
-await fetch(
-'https://script.google.com/macros/s/你的AppsScript網址/exec',
-{
-method:'POST',
-body:JSON.stringify({
-name:name,
-phone:phone,
-idno:idno,
-birth:birth,
-iphone:iphone
-})
-}
-);
-
-document.getElementById('emptyOrder').style.display='none';
-document.getElementById('orderResult').style.display='block';
-
-showPage('orderPage',1);
-
-}
-
-</script>
-
 </body>
 </html>
