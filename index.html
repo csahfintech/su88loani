@@ -66,24 +66,6 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Micro
 
 <nav class="bottom"><a class="tab active" href="#" onclick="showPage('homePage',0)"><span>⌂</span>首頁</a><a class="tab" href="#" onclick="showPage('orderPage',1)"><span>▦</span>訂單</a><a class="tab" href="#" onclick="showPage('servicePage',2)"><span>☻</span>客服</a></nav>
 </main>
-window.addEventListener('DOMContentLoaded', function(){
-
-  if(localStorage.getItem('su88_order_status') === 'pending'){
-
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth()+1).padStart(2,'0');
-    const dd = String(today.getDate()).padStart(2,'0');
-
-    document.getElementById('applyDate').innerHTML =
-    '申請時間：' + yyyy + '-' + mm + '-' + dd;
-
-    document.getElementById('emptyOrder').style.display='none';
-    document.getElementById('orderResult').style.display='block';
-  }
-
-});
-  
 <script>
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbywIY-gu_E0bBqTyhutVFjinYSiqC7rfeZkJC9PKzo95ExStO0XXQKA0-DaYa23q0Q3/exec';
 const inputs = ['nameInput','phoneInput','idInput','birthInput','iphoneInput'];
@@ -94,51 +76,93 @@ function checkForm(){
   const idno = document.getElementById('idInput').value.trim().toUpperCase();
   const birth = document.getElementById('birthInput').value.trim();
   const iphone = document.getElementById('iphoneInput').value.trim();
+
   document.getElementById('idInput').value = idno;
 
   const phoneRule = /^09\d{8}$/;
   const idRule = /^[A-Z][0-9]{9}$/;
 
-  document.getElementById('phoneError').innerHTML = phone && !phoneRule.test(phone) ? '手機號碼必須為09開頭，共10碼' : '';
-  document.getElementById('idError').innerHTML = idno && !idRule.test(idno) ? '身分證格式需為 A123456789' : '';
+  document.getElementById('phoneError').innerHTML =
+    phone && !phoneRule.test(phone) ? '手機號碼必須為09開頭，共10碼' : '';
 
-  const valid = name !== '' && birth !== '' && iphone !== '' && phoneRule.test(phone) && idRule.test(idno);
+  document.getElementById('idError').innerHTML =
+    idno && !idRule.test(idno) ? '身分證格式需為 A123456789' : '';
+
+  const valid =
+    name !== '' &&
+    birth !== '' &&
+    iphone !== '' &&
+    phoneRule.test(phone) &&
+    idRule.test(idno);
+
   const btn = document.getElementById('submitBtn');
-  if(valid){ btn.classList.remove('disabled'); } else { btn.classList.add('disabled'); }
+
+  if(valid){
+    btn.classList.remove('disabled');
+  }else{
+    btn.classList.add('disabled');
+  }
+
   return valid;
+}
+
+function showPage(pageId,index){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab')[index].classList.add('active');
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showPendingOrder(applyDate){
+  const dateText = applyDate || localStorage.getItem('su88_apply_date') || getTodayText();
+
+  document.getElementById('applyDate').innerHTML = '申請時間：' + dateText;
+  document.getElementById('emptyOrder').style.display='none';
+  document.getElementById('orderResult').style.display='block';
+}
+
+function getTodayText(){
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth()+1).padStart(2,'0');
+  const dd = String(today.getDate()).padStart(2,'0');
+  return yyyy + '-' + mm + '-' + dd;
 }
 
 window.addEventListener('DOMContentLoaded', function(){
   inputs.forEach(id=>{
     const el = document.getElementById(id);
-    if(el){ el.addEventListener('input', checkForm); el.addEventListener('change', checkForm); }
+    if(el){
+      el.addEventListener('input', checkForm);
+      el.addEventListener('change', checkForm);
+    }
   });
-  checkForm();
-});
 
-function showPage(pageId,index){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(pageId).classList.add('active');
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab')[index].classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+  checkForm();
+
+  if(localStorage.getItem('su88_order_status') === 'pending'){
+    showPendingOrder();
+  }
+});
 
 async function submitApply(event){
   if(event){ event.preventDefault(); }
-  if(!checkForm()){ return; }
+
+  if(!checkForm()){
+    return;
+  }
 
   const btn = document.getElementById('submitBtn');
   const msg = document.getElementById('submitMsg');
+
   btn.innerText = '送出中...';
   btn.classList.add('disabled');
   msg.innerHTML = '';
 
-  const today = new Date();
-  const yyyy = today.getFullYear();
-  const mm = String(today.getMonth()+1).padStart(2,'0');
-  const dd = String(today.getDate()).padStart(2,'0');
-  const applyDate = yyyy + '-' + mm + '-' + dd;
+  const applyDate = getTodayText();
 
   const payload = {
     name: document.getElementById('nameInput').value.trim(),
@@ -157,13 +181,12 @@ async function submitApply(event){
       body: JSON.stringify(payload)
     });
 
-    document.getElementById('applyDate').innerHTML = '申請時間：' + applyDate;
     localStorage.setItem('su88_order_status','pending');
+    localStorage.setItem('su88_apply_date', applyDate);
 
-document.getElementById('emptyOrder').style.display='none';
-document.getElementById('orderResult').style.display='block';
+    showPendingOrder(applyDate);
+    showPage('orderPage',1);
 
-showPage('orderPage',1);
   }catch(err){
     msg.innerHTML = '送出失敗，請稍後再試或聯繫客服';
     console.error(err);
