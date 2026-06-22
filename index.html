@@ -66,7 +66,24 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Micro
 
 <nav class="bottom"><a class="tab active" href="#" onclick="showPage('homePage',0)"><span>⌂</span>首頁</a><a class="tab" href="#" onclick="showPage('orderPage',1)"><span>▦</span>訂單</a><a class="tab" href="#" onclick="showPage('servicePage',2)"><span>☻</span>客服</a></nav>
 </main>
+window.addEventListener('DOMContentLoaded', function(){
 
+  if(localStorage.getItem('su88_order_status') === 'pending'){
+
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth()+1).padStart(2,'0');
+    const dd = String(today.getDate()).padStart(2,'0');
+
+    document.getElementById('applyDate').innerHTML =
+    '申請時間：' + yyyy + '-' + mm + '-' + dd;
+
+    document.getElementById('emptyOrder').style.display='none';
+    document.getElementById('orderResult').style.display='block';
+  }
+
+});
+  
 <script>
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbywIY-gu_E0bBqTyhutVFjinYSiqC7rfeZkJC9PKzo95ExStO0XXQKA0-DaYa23q0Q3/exec';
 const inputs = ['nameInput','phoneInput','idInput','birthInput','iphoneInput'];
@@ -141,9 +158,12 @@ async function submitApply(event){
     });
 
     document.getElementById('applyDate').innerHTML = '申請時間：' + applyDate;
-    document.getElementById('emptyOrder').style.display='none';
-    document.getElementById('orderResult').style.display='block';
-    showPage('orderPage',1);
+    localStorage.setItem('su88_order_status','pending');
+
+document.getElementById('emptyOrder').style.display='none';
+document.getElementById('orderResult').style.display='block';
+
+showPage('orderPage',1);
   }catch(err){
     msg.innerHTML = '送出失敗，請稍後再試或聯繫客服';
     console.error(err);
