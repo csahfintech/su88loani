@@ -1,1 +1,74 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>速88貸｜案件管理後台</title><link rel="stylesheet" href="css/app.css"><style>.wrap{max-width:1100px;margin:0 auto;padding:24px}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.stat{background:#fff;border-radius:18px;padding:18px;box-shadow:0 8px 24px #0001}.stat b{font-size:30px}table{width:100%;border-collapse:collapse;background:#fff;border-radius:18px;overflow:hidden;margin-top:18px}th,td{padding:13px;border-bottom:1px solid #e8eef5;text-align:left}th{background:#f1f5fa}@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}table{font-size:13px}}</style></head><body><div class="wrap"><h1>速88貸｜案件管理後台</h1><div class="grid"><div class="stat">今日申請<br><b>0</b></div><div class="stat">待審核<br><b>0</b></div><div class="stat">需補件<br><b>0</b></div><div class="stat">待視訊<br><b>0</b></div><div class="stat">待撥款<br><b>0</b></div></div><table><thead><tr><th>案件編號</th><th>姓名</th><th>手機</th><th>目前步驟</th><th>狀態</th><th>建立時間</th></tr></thead><tbody id="rows"><tr><td colspan="6">尚未串接資料</td></tr></tbody></table></div></body></html>
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>速88貸｜案件管理後台</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+  <main class="dashboard-shell">
+    <header class="dash-header">
+      <div class="dash-brand"><span class="dash-mark">88</span><div><h1>案件管理後台</h1><p>速88貸智慧後台 V1</p></div></div>
+      <nav class="dash-tabs">
+        <button class="tab-button active" data-filter="all">全部案件</button>
+        <button class="tab-button" data-filter="review">待審核</button>
+        <button class="tab-button" data-filter="supplement">需補件</button>
+        <button class="tab-button" data-filter="video">待視訊</button>
+        <button class="tab-button" data-filter="pay">待撥款</button>
+      </nav>
+    </header>
+
+    <section class="summary-grid">
+      <article class="summary-card" data-key="today">
+        <span>今日申請</span>
+        <strong id="countToday">0</strong>
+      </article>
+      <article class="summary-card" data-key="review">
+        <span>待審核</span>
+        <strong id="countReview">0</strong>
+      </article>
+      <article class="summary-card" data-key="supplement">
+        <span>需補件</span>
+        <strong id="countSupplement">0</strong>
+      </article>
+      <article class="summary-card" data-key="video">
+        <span>待視訊</span>
+        <strong id="countVideo">0</strong>
+      </article>
+      <article class="summary-card" data-key="pay">
+        <span>待撥款</span>
+        <strong id="countPay">0</strong>
+      </article>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-header">
+        <div>
+          <h2>案件列表</h2>
+          <p>查看最新申請與審核進度。</p>
+        </div>
+        <div class="search-area">
+          <input id="searchInput" type="search" placeholder="搜尋案件編號、姓名、手機" />
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>案件編號</th>
+              <th>姓名</th>
+              <th>手機</th>
+              <th>步驟</th>
+              <th>狀態</th>
+              <th>時間</th>
+            </tr>
+          </thead>
+          <tbody id="caseList"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
