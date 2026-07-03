@@ -181,11 +181,47 @@ async function submitApply(event){
       body: JSON.stringify(payload)
     });
 
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const dateKey = `${yyyy}${mm}${dd}`;
+    const seqKey = `su88_case_seq_${dateKey}`;
+    const nextSeq = String(Number(localStorage.getItem(seqKey) || '0') + 1).padStart(3, '0');
+    const caseId = `SU${dateKey}${nextSeq}`;
+
+    const normalizeDate = (value) => {
+      if (!value) return '';
+      const trimmed = value.trim();
+      const digitOnly = trimmed.replace(/[^0-9]/g, '');
+      if (/^\d{8}$/.test(digitOnly)) {
+        return `${digitOnly.slice(0, 4)}-${digitOnly.slice(4, 6)}-${digitOnly.slice(6)}`;
+      }
+      const iso = trimmed.replace(/\//g, '-');
+      const parts = iso.split('-').map(part => part.padStart(2, '0'));
+      if (parts.length === 3) {
+        const [a, b, c] = parts;
+        if (a.length === 4) return `${a}-${b}-${c}`;
+        if (c.length === 4) return `${c}-${b}-${a}`;
+      }
+      return iso;
+    };
+
+    const basicData = {
+      name: payload.name,
+      phone: payload.phone,
+      idNumber: payload.idno,
+      birthDate: normalizeDate(payload.birth),
+      phoneModel: payload.iphone
+    };
+
+    localStorage.setItem('su88_basic_data', JSON.stringify(basicData));
+    localStorage.setItem('su88_case_id', caseId);
+    localStorage.setItem(seqKey, String(Number(nextSeq)));
     localStorage.setItem('su88_order_status','pending');
     localStorage.setItem('su88_apply_date', applyDate);
 
-    showPendingOrder(applyDate);
-    showPage('orderPage',1);
+    location.href = 'apply.html';
 
   }catch(err){
     msg.innerHTML = '送出失敗，請稍後再試或聯繫客服';

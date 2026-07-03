@@ -15,9 +15,10 @@
     </header>
 
     <section class="progress-panel">
-      <div class="progress-title"><span id="stepText">STEP 1 / 8</span><span id="timeText">約需 10 分鐘</span></div>
+      <div class="progress-title"><span id="stepText">STEP 1 / 9</span><span id="timeText">約需 10 分鐘</span></div>
       <div class="progress-bar"><div id="progressFill"></div></div>
-      <div class="progress-meta"><span id="progressPercent">完成 11%</span><span id="progressRemain">剩 7 步</span></div>
+      <div class="progress-meta"><span id="progressPercent">完成 11%</span><span id="progressRemain">剩 8 步</span></div>
+      <div class="step-tabs" id="stepTabs"></div>
     </section>
 
     <form id="applyForm" class="form-card" autocomplete="on">
@@ -52,16 +53,33 @@
       </section>
 
       <section class="step-panel" data-step="2">
-        <div class="step-header"><h1>居住資料</h1><p>請填寫目前居住狀況與聯絡地址。</p></div>
-        <div class="field-grid">
-          <label>LINE ID<input type="text" name="lineId" placeholder="例：@abc123"></label>
-          <label>現居地址<input type="text" name="currentAddress" placeholder="請輸入現居地址" required></label>
-          <label>戶籍地址<input type="text" name="registeredAddress" placeholder="請輸入戶籍地址" required></label>
-          <div class="choice-block"><span>地址類型</span><div class="radio-group"><label><input type="radio" name="housingType" value="自有" required>自有</label><label><input type="radio" name="housingType" value="租屋">租屋</label></div></div>
+        <div class="step-header"><h1>LINE 帳號驗證</h1><p>請先完成 LINE 資料驗證，才能進行後續申請步驟。</p></div>
+        <div class="line-card">
+          <div class="line-card-top">
+            <div class="line-avatar"><img id="lineAvatarImg" alt="LINE Avatar"></div>
+            <div>
+              <p class="line-label">等待 LINE 授權...</p>
+              <p id="lineStatus" class="line-status">LINE 尚未驗證</p>
+            </div>
+          </div>
+          <div class="line-detail">
+            <div><span>LINE名稱</span><strong id="lineDisplayName">等待 LINE 授權...</strong></div>
+          </div>
+          <p id="lineError" class="line-error"></p>
+          <button type="button" id="lineVerifyBtn" class="secondary">重新同步 LINE</button>
         </div>
       </section>
 
       <section class="step-panel" data-step="3">
+        <div class="step-header"><h1>居住資料</h1><p>請填寫目前居住狀況與聯絡地址。</p></div>
+        <div class="field-grid">
+          <label>現居地址<input type="text" name="currentAddress" placeholder="請輸入現居地址" required></label>
+          <label>戶籍地址<input type="text" name="registeredAddress" placeholder="請輸入戶籍地址" required></label>
+          <div class="choice-block"><span>居住狀況</span><div class="radio-group"><label><input type="radio" name="housingType" value="自有" required>自有</label><label><input type="radio" name="housingType" value="租屋">租屋</label></div></div>
+        </div>
+      </section>
+
+      <section class="step-panel" data-step="4">
         <div class="step-header"><h1>工作資料</h1><p>請提供目前任職資訊。</p></div>
         <div class="field-grid">
           <label>公司名稱<input type="text" name="company" placeholder="請輸入公司名稱" required></label>
@@ -72,54 +90,44 @@
         </div>
       </section>
 
-      <section class="step-panel" data-step="4">
+      <section class="step-panel" data-step="5">
         <div class="step-header"><h1>撥款帳戶確認</h1><p>核准後款項將匯入此帳戶。</p></div>
         <div class="field-grid">
           <label>銀行<select name="bank" required><option value="">請選擇銀行</option><option value="004 台灣銀行">004 台灣銀行</option><option value="005 土地銀行">005 土地銀行</option><option value="006 合作金庫">006 合作金庫</option><option value="007 第一銀行">007 第一銀行</option><option value="008 華南銀行">008 華南銀行</option><option value="009 彰化銀行">009 彰化銀行</option><option value="012 台北富邦">012 台北富邦</option><option value="013 國泰世華">013 國泰世華</option><option value="822 中國信託">822 中國信託</option><option value="812 台新銀行">812 台新銀行</option></select></label>
           <label>分行名稱<input type="text" name="bankBranch" placeholder="請輸入分行名稱" required></label>
           <label>帳號<input type="text" name="bankAccount" placeholder="請輸入帳號" inputmode="numeric" required></label>
           <label>戶名<input type="text" name="bankOwner" placeholder="請輸入收款戶名" required></label>
-          <div class="upload-block"><span>上傳銀行帳戶封面照</span><input type="file" name="bankCover" accept="image/*" capture="environment"></div>
+          <div class="upload-block"><span>上傳銀行帳戶封面照</span><input type="file" name="bankCover" accept="image/*" capture="environment"><div class="file-status" data-file-status="bankCover">尚未上傳</div></div>
         </div>
-      </section>
-
-      <section class="step-panel" data-step="5">
-        <div class="step-header"><h1>緊急聯絡人</h1><p>請提供最少 2 位緊急聯絡人。</p></div>
-        <div class="contact-grid" id="contactArea"></div>
+        <p class="reminder-text">款項將匯入此帳戶，若需變更請聯絡客服。</p>
       </section>
 
       <section class="step-panel" data-step="6">
-        <div class="step-header"><h1>身分驗證</h1><p>請上傳證件照片，支援拍照上傳。</p></div>
-        <div class="upload-grid">
-          <label class="upload-card">身分證正面<input type="file" name="idFront" accept="image/*" capture="environment"></label>
-          <label class="upload-card">身分證反面<input type="file" name="idBack" accept="image/*" capture="environment"></label>
-          <label class="upload-card">手持身分證自拍<input type="file" name="idSelfie" accept="image/*" capture="user"></label>
-        </div>
+        <div class="step-header"><h1>緊急聯絡人</h1><p>請提供三位緊急聯絡人，至少兩位家人與一位朋友。</p></div>
+        <div class="contact-grid" id="contactArea"></div>
       </section>
 
       <section class="step-panel" data-step="7">
-        <div class="step-header"><h1>手機驗證</h1><p>請上傳手機截圖或拍照檢核清單。</p></div>
-        <div class="phone-grid" id="phoneShotArea"></div>
+        <div class="step-header"><h1>身份驗證</h1><p>請拍攝並上傳下列三張照片。</p></div>
+        <div class="upload-grid" id="idUploadArea"></div>
       </section>
 
       <section class="step-panel" data-step="8">
-        <div class="step-header"><h1>確認送出</h1><p>請再確認所有資料後送出申請。</p></div>
+        <div class="step-header"><h1>手機驗證</h1><p>請拍攝下列手機畫面，完成後會顯示 ✅。</p></div>
+        <div class="phone-grid" id="phoneShotArea"></div>
+      </section>
+
+      <section class="step-panel" data-step="9">
+        <div class="step-header"><h1>確認送出</h1><p>所有資料確認完成後請送出申請。</p></div>
         <div class="review-card">
-          <p>請確認以下資訊已完整填寫：</p>
-          <ul>
-            <li>基本資料</li>
-            <li>居住資料</li>
-            <li>工作資料</li>
-            <li>撥款帳戶</li>
-            <li>緊急聯絡人</li>
-            <li>身分驗證</li>
-            <li>手機驗證</li>
-          </ul>
+          <p class="review-title">所有資料確認完成</p>
+          <p class="review-status">案件建立成功</p>
+          <div class="case-summary">案件編號：<strong>SU202607030001</strong></div>
         </div>
         <label class="agree"><input type="checkbox" name="agree" required>我已確認資料正確，並同意本次申辦資料使用。</label>
       </section>
 
-      <section class="step-panel success-panel" data-step="9">
+      <section class="step-panel success-panel" data-step="10">
         <div class="success-box">
           <div class="success-icon">✓</div>
           <h1>申請完成</h1>
