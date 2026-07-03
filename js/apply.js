@@ -1,4 +1,4 @@
-﻿const TOTAL_STEPS = 9;
+﻿const TOTAL_STEPS = 8;
 const STEP_NAMES = [
   "基本資料確認",
   "居住資料",
@@ -7,8 +7,7 @@ const STEP_NAMES = [
   "緊急聯絡人",
   "身分驗證",
   "手機驗證",
-  "確認送出",
-  "完成頁"
+  "確認送出"
 ];
 const STORAGE_KEY = "su88_apply_v1";
 let currentStep = 1;
@@ -110,24 +109,24 @@ function updateStepUI() {
   steps.forEach((step) => {
     step.classList.toggle("active", Number(step.dataset.step) === currentStep);
   });
-  const percent = Math.round((currentStep / TOTAL_STEPS) * 100);
+  const percent = Math.round((Math.min(currentStep, TOTAL_STEPS) / TOTAL_STEPS) * 100);
   progressFill.style.width = `${percent}%`;
-  stepText.textContent = `STEP ${currentStep} / ${TOTAL_STEPS}`;
+  stepText.textContent = currentStep <= TOTAL_STEPS ? `STEP ${currentStep} / ${TOTAL_STEPS}` : `STEP ${TOTAL_STEPS} / ${TOTAL_STEPS}`;
   progressPercent.textContent = `完成 ${percent}%`;
   timeText.textContent = formatTime(currentStep);
   progressRemain.textContent = currentStep < TOTAL_STEPS ? `剩 ${TOTAL_STEPS - currentStep} 步` : "";
-  prevBtn.style.display = currentStep === 1 || currentStep === 9 ? "none" : "inline-flex";
-  if (currentStep === 8) {
+  prevBtn.style.display = currentStep === 1 || currentStep === TOTAL_STEPS + 1 ? "none" : "inline-flex";
+  if (currentStep === TOTAL_STEPS) {
     nextBtn.textContent = "確認送出";
-  } else if (currentStep === 9) {
+  } else if (currentStep === TOTAL_STEPS + 1) {
     nextBtn.textContent = "返回首頁";
   } else {
-    nextBtn.textContent = "下一步";
+    nextBtn.textContent = "確認資料，下一步";
   }
 }
 
 function goToStep(step) {
-  currentStep = Math.max(1, Math.min(TOTAL_STEPS, step));
+  currentStep = Math.max(1, Math.min(TOTAL_STEPS + 1, step));
   updateStepUI();
   saveForm();
   window.scrollTo({ top: 0, behavior: "smooth" });

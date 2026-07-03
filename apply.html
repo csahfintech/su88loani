@@ -9,25 +9,44 @@
 <body>
   <main class="app-shell">
     <header class="app-bar">
-      <div class="brand"><span class="brand-mark">88</span><div><div class="brand-title">速88貸</div><div class="brand-subtitle">智慧申請系統 V1</div></div></div>
-      <div class="status-chip">已儲存至本機</div>
+      <div class="brand"><span class="brand-mark">88</span><div><div class="brand-title">速88貸</div></div></div>
+      <div class="case-chip"><span class="case-label">案件編號</span><strong class="case-value">SU202607030001</strong></div>
     </header>
 
     <section class="progress-panel">
-      <div class="progress-title"><span id="stepText">STEP 1 / 9</span><span id="timeText">約需 10 分鐘</span></div>
+      <div class="progress-title"><span id="stepText">STEP 1 / 8</span><span id="timeText">約需 10 分鐘</span></div>
       <div class="progress-bar"><div id="progressFill"></div></div>
-      <div class="progress-meta"><span id="progressPercent">完成 11%</span><span id="progressRemain">剩 8 步</span></div>
+      <div class="progress-meta"><span id="progressPercent">完成 11%</span><span id="progressRemain">剩 7 步</span></div>
     </section>
 
     <form id="applyForm" class="form-card" autocomplete="on">
       <section class="step-panel active" data-step="1">
-        <div class="step-header"><h1>基本資料確認</h1><p>請確認系統自動帶入的基本資料。</p></div>
-        <div class="field-grid">
-          <label>姓名<input type="text" name="name" placeholder="王小明" required></label>
-          <label>手機<input type="tel" name="phone" placeholder="0912-345-678" required></label>
-          <label>身分證字號<input type="text" name="idNumber" placeholder="A123456789" required></label>
-          <label>出生日期<input type="date" name="birthday" required></label>
-          <label>手機型號<input type="text" name="phoneModel" placeholder="例如：iPhone 15 Pro" required></label>
+        <div class="welcome-panel">
+          <p class="welcome-greeting">您好 👋</p>
+          <h2>歡迎完成最後資料確認</h2>
+        </div>
+        <div class="step-header"><h1>基本資料確認</h1><p>已同步您於網站填寫的基本資料，請確認內容是否正確。</p></div>
+        <div class="field-grid info-list">
+          <div class="info-row">
+            <div class="row-icon">👤</div>
+            <label><span>姓名</span><input type="text" name="name" placeholder="等待同步..." required></label>
+          </div>
+          <div class="info-row">
+            <div class="row-icon">📞</div>
+            <label><span>電話</span><input type="tel" name="phone" placeholder="等待同步..." required></label>
+          </div>
+          <div class="info-row">
+            <div class="row-icon">🪪</div>
+            <label><span>身分證</span><input type="text" name="idNumber" placeholder="等待同步..." required></label>
+          </div>
+          <div class="info-row">
+            <div class="row-icon">🎂</div>
+            <label><span>出生年月日</span><input type="date" name="birthday" placeholder="等待同步..." required></label>
+          </div>
+          <div class="info-row">
+            <div class="row-icon">📱</div>
+            <label><span>手機型號</span><input type="text" name="phoneModel" placeholder="等待同步..." required></label>
+          </div>
         </div>
       </section>
 
@@ -109,9 +128,10 @@
         </div>
       </section>
 
+      <div class="security-note">🔒 您的資料全程加密，僅供本次租賃申辦及審核使用。</div>
       <div class="action-bar">
         <button type="button" id="prevBtn" class="ghost">上一步</button>
-        <button type="button" id="nextBtn" class="primary">下一步</button>
+        <button type="button" id="nextBtn" class="primary">確認資料，下一步</button>
       </div>
     </form>
   </main>

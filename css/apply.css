@@ -64,13 +64,23 @@ body {
   color: var(--muted);
   margin-top: 4px;
 }
-.status-chip {
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(244,178,35,0.16);
-  color: var(--gold);
-  font-size: 13px;
-  font-weight: 700;
+.case-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+}
+.case-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+.case-value {
+  font-size: 14px;
+  font-weight: 800;
+  color: #FFF;
 }
 .progress-panel,
 .form-card {
@@ -129,6 +139,28 @@ body {
   color: var(--muted);
   line-height: 1.6;
 }
+.welcome-panel {
+  margin-bottom: 18px;
+}
+.welcome-greeting {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+.welcome-panel h2 {
+  margin: 8px 0 0;
+  font-size: 22px;
+  line-height: 1.2;
+}
+.security-note {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
 .field-grid,
 .contact-grid,
 .phone-grid,
@@ -146,6 +178,50 @@ label {
   font-size: 13px;
   color: var(--text);
   font-weight: 700;
+}
+.info-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+.info-row {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+.row-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(244,178,35,0.18);
+  color: var(--gold);
+  font-size: 18px;
+}
+.info-row label {
+  margin: 0;
+}
+.info-row label span {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+.info-row input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  color: #FBFBFB;
+  padding: 0 14px;
+  font-size: 15px;
 }
 input[type="text"],
 input[type="tel"],
@@ -305,7 +381,7 @@ button {
   cursor: pointer;
 }
 button.primary {
-  background: linear-gradient(135deg, #F4B223, #FFC95E);
+  background: linear-gradient(135deg, #F4B223, #FFD77B);
   color: #071B4A;
 }
 button.ghost {
