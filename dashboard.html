@@ -16,6 +16,7 @@
         <button class="tab-button" data-filter="supplement">需補件</button>
         <button class="tab-button" data-filter="video">待視訊</button>
         <button class="tab-button" data-filter="pay">待撥款</button>
+        <button class="tab-button" data-filter="paid">已撥款</button>
       </nav>
     </header>
 
@@ -40,6 +41,10 @@
         <span>待撥款</span>
         <strong id="countPay">0</strong>
       </article>
+      <article class="summary-card" data-key="paid">
+        <span>已撥款</span>
+        <strong id="countPaid">0</strong>
+      </article>
     </section>
 
     <section class="table-panel">
@@ -49,7 +54,7 @@
           <p>查看最新申請與審核進度。</p>
         </div>
         <div class="search-area">
-          <input id="searchInput" type="search" placeholder="搜尋案件編號、姓名、手機" />
+          <input id="searchInput" type="search" placeholder="搜尋案件編號、姓名、手機、LINE 名稱" />
         </div>
       </div>
       <div class="table-wrap">
@@ -59,9 +64,10 @@
               <th>案件編號</th>
               <th>姓名</th>
               <th>手機</th>
-              <th>步驟</th>
+              <th>LINE名稱</th>
               <th>狀態</th>
-              <th>時間</th>
+              <th>建立時間</th>
+              <th>操作</th>
             </tr>
           </thead>
           <tbody id="caseList"></tbody>

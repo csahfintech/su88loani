@@ -264,6 +264,77 @@ async function refreshLineProfile() {
   }
 }
 
+function collectFormData() {
+  const data = {};
+  const formData = new FormData(form);
+  formData.forEach((value, key) => {
+    if (value instanceof File) {
+      return;
+    }
+    data[key] = value;
+  });
+  return data;
+}
+
+function collectContacts() {
+  const contacts = [];
+  for (let i = 1; i <= 3; i += 1) {
+    contacts.push({
+      name: form.elements[`contact${i}Name`]?.value || "",
+      relation: form.elements[`contact${i}Relation`]?.value || "",
+      phone: form.elements[`contact${i}Phone`]?.value || ""
+    });
+  }
+  return contacts;
+}
+
+function collectUploadFiles() {
+  return ["idFront", "idBack", "idSelfie", "phoneShot1", "phoneShot2", "phoneShot3", "phoneShot4", "phoneShot5", "phoneShot6"].reduce((result, name) => {
+    const input = form.elements[name];
+    if (input && input.files && input.files.length) {
+      result[name] = input.files[0].name;
+    }
+    return result;
+  }, {});
+}
+
+function buildCasePayload(caseId) {
+  return {
+    caseId,
+    basicData: {
+      name: form.elements.name.value,
+      phone: form.elements.phone.value,
+      idNumber: form.elements.idNumber.value,
+      birthday: form.elements.birthday.value,
+      phoneModel: form.elements.phoneModel.value
+    },
+    lineProfile: lineProfile || LINE_MOCK_PROFILE,
+    residenceData: {
+      currentAddress: form.elements.currentAddress.value,
+      registeredAddress: form.elements.registeredAddress.value,
+      housingType: form.elements.housingType?.value || ""
+    },
+    workData: {
+      company: form.elements.company.value,
+      companyPhone: form.elements.companyPhone.value,
+      jobTitle: form.elements.jobTitle.value,
+      companyAddress: form.elements.companyAddress.value,
+      income: form.elements.income.value
+    },
+    bankData: {
+      bank: form.elements.bank.value,
+      bankBranch: form.elements.bankBranch.value,
+      bankAccount: form.elements.bankAccount.value,
+      bankOwner: form.elements.bankOwner.value,
+      bankCoverFile: form.elements.bankCover?.files?.[0]?.name || ""
+    },
+    contacts: collectContacts(),
+    idUploads: collectUploadFiles(),
+    createdAt: new Date().toISOString(),
+    status: "待審核"
+  };
+}
+
 function buildContacts() {
   const container = document.getElementById("contactArea");
   const titles = ["第一位（家人）", "第二位（家人）", "第三位（朋友）"];
@@ -387,9 +458,13 @@ function submitStep() {
   if (currentStep === TOTAL_STEPS) {
     if (!form.reportValidity()) return;
     const token = Date.now().toString().slice(-6);
-    caseNumber.textContent = `案件編號 SU${new Date().toISOString().slice(0,10).replace(/-/g,"")}${token}`;
-    localStorage.removeItem(STORAGE_KEY);
-    goToStep(TOTAL_STEPS + 1);
+    const caseId = `SU${new Date().toISOString().slice(0,10).replace(/-/g,"")}${token}`;
+    caseNumber.textContent = `案件編號 ${caseId}`;
+    const payload = buildCasePayload(caseId);
+    submitCase(payload).then(() => {
+      localStorage.removeItem(STORAGE_KEY);
+      goToStep(TOTAL_STEPS + 1);
+    });
     return;
   }
   if (currentStep === TOTAL_STEPS + 1) {
