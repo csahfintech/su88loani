@@ -1,0 +1,138 @@
+:root {
+  --primary: #22c55e;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plans-section {
+    padding: 5.5rem 0;
+    border-radius: 1.5rem;
+  }
+
+  .trust-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cta-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .mobile-cta {
+    display: inline-flex;
+  }
+
+  .line-float {
+    bottom: 6.8rem;
+  }
+
+  .navbar {
+    padding: 0.8rem 0;
+    height: 72px;
+  }
+
+  .nav-wrap {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    order: 3;
+    padding-top: 0.2rem;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 100vh;
+    padding-top: 2.3rem;
+    padding-bottom: 2.5rem;
+  }
+
+  section {
+    padding: 2.6rem 0;
+  }
+
+  .hero .container {
+    width: min(1280px, calc(100% - 1.4rem));
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    min-height: auto;
+  }
+
+  .hero-card {
+    width: 100%;
+    padding: 1.4rem;
+    animation: none;
+  }
+
+  .hero h1 {
+    font-size: 2.45rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+  }
+
+  .trust-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .trust-card {
+    padding: 1.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .trust-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .container {
+    width: min(1280px, calc(100% - 1.2rem));
+  }
+}
